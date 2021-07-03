@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
+app.use(express.static('local'));
 app.use(cookieParser());
 app.use(helmet());
 app.use(morgan('tiny'))
@@ -17,8 +18,10 @@ app.set('json spaces', 2);
 
 //Routes
 app.get('/', (req, res) => {
-    res.json({message: 'ROOT of IMS BACKEND EXPRESS'})
+    // res.json({message: 'ROOT of IMS BACKEND EXPRESS'})
+    res.render('index')
 });
+
 
 
 
